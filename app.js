@@ -40,6 +40,7 @@ if(process.env.NODE_ENV === 'production') {
         __dirname,'client','dist','client','index.html'
       )
     )
+    console.log(path.resolve(__dirname,'client','dist','client','index.html'))
   })
 }
 
