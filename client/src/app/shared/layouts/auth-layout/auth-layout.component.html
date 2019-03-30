@@ -1,0 +1,20 @@
+<body>
+
+  <nav>
+      <div class="nav-wrapper grey darken-1">
+          <a href="#" class="brand-logo">ExampleProject</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li routerLinkActive="active">
+                <a routerLink="/login">Login</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/register">Register</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  
+  <div class="auth-block">
+      <router-outlet></router-outlet>
+  </div>
+  

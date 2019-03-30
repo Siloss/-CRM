@@ -1,0 +1,38 @@
+<div *ngIf="positions$ | async as positions; else loader">
+  <table class="highlight" *ngIf="positions.length !==0; else empty">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Cost</th>
+        <th>Quantity</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody *ngFor="let position of positions">
+    <tr>
+        <td>{{position.name}}</td>
+        <td>{{position.cost}}$</td>
+        <td>
+            <div class="input-field inline order-position-input">
+                <input type="number" value="1" min="1" [(ngModel)]="position.quantity">
+            </div>
+        </td>
+        <td>
+            <button 
+              class="btn waves-effect wavers-light btn-small" 
+              (click)="addToOrder(position)"
+              [disabled]="!position.quantity"
+              >Add</button>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+  <ng-template #empty>
+    <div class="center">No any positions in this category</div>
+  </ng-template>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>  
+</ng-template>
